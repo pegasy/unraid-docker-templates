@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <TemplateURL>https://raw.githubusercontent.com/pegasy/unraid-templates/master/templates/nextcloud-backup.xml</TemplateURL>
+  <Name>nextcloud-backup</Name>
+  <Beta>True</Beta>
+  <Repository>pegasy/nextcloud-backup</Repository>
+  <Registry>https://hub.docker.com/r/pegasy/nextcloud-backup</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/pegasy/nextcloud-backup</Support>
+  <Overview>Container for making a backup of a nextcloud installation with mysql/mariadb as database engine.</Overview>
+  <Repository>pegasy/nextcloud-backup</Repository>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams/>
+  <Description>Container for making a backup of a nextcloud installation with mysql/mariadb as database engine.</Description>
+  <Category>Cloud: Productivity: Tools: MediaServer:Other Network:Web</Category>
+  <Date>2018-08-14</Date>
+  <Networking>
+    <Mode>bridge</Mode>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/nextcloud/data</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/nextcloud/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/backup</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>DB_HOSTNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Name>DB_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Name>DB_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>nextcloud</Value>
+      <Name>DB_DATABASE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>7</Value>
+      <Name>MAX_FILES_TO_KEEP</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+
+  <Config Name="Key 1" Target="DB_HOSTNAME" Default="localhost" Mode="" Description="Container Variable: DB_HOSTNAME" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Key 2" Target="DB_USERNAME" Default="nextcloud" Mode="" Description="Container Variable: DB_USERNAME" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Key 3" Target="DB_PASSWORD" Default="qwerty" Mode="" Description="Container Variable: DB_PASSWORD" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="Key 4" Target="DB_DATABASE" Default="nextcloud" Mode="" Description="Container Variable: DB_DATABASE" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Key 5" Target="MAX_FILES_TO_KEEP" Default="7" Mode="" Description="Container Variable: MAX_FILES_TO_KEEP" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Key 6" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Key 7" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Host Path 1" Target="/nextcloud/data" Default="/mnt/user/nextcloud/" Mode="ro" Description="Container Path: /nextcloud/data" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Host Path 2" Target="/nextcloud/config" Default="/mnt/user/appdata/nextcloud/" Mode="rw" Description="Container Path: /nextcloud/config" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Host Path 3" Target="/backup" Default="/mnt/user/backups/nextcloud/" Mode="rw" Description="Container Path: /backup" Type="Path" Display="always" Required="true" Mask="false"></Config>
+
+</Container>
